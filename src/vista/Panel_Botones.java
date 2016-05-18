@@ -14,6 +14,7 @@ import controlador.Controlador_FRM_VentanaRegistrar;
  *
  * @author tecnologiamultimedia
  */
+//clase de tipo JPanel con botones que se reutilizara en distintas ventanas 
 public class Panel_Botones extends javax.swing.JPanel {
 
     /**
@@ -25,6 +26,7 @@ public class Panel_Botones extends javax.swing.JPanel {
         this.btn_Modificar.setEnabled(false);
         this.btn_Eliminar.setEnabled(false);
     }
+    //metodos que envian controladores a los botones dependiendo el tipo de ventana que los usara
     public void agregarEventos(Controlador_FRM_MantenimientoEstudiantes controlador)
     {
         this.btn_Consultar.addActionListener(controlador);
@@ -53,25 +55,30 @@ public class Panel_Botones extends javax.swing.JPanel {
         this.btn_Modificar.addActionListener(controlador);
         this.btn_Eliminar.addActionListener(controlador);
     }
+     //metodo que habilita el boton de agregar
     public void habilitarAgregar()
     {
         this.btn_Agregar.setEnabled(true);
     }
+    //metodo que deshabilita los botones
     public void deshabilitarBotones()
     {
         this.btn_Agregar.setEnabled(false);
         this.btn_Modificar.setEnabled(false);
         this.btn_Eliminar.setEnabled(false);
     }
+    //metodo que habilita el boton de modificae y eliminar
     public void habilitarEdicion()
     {
         this.btn_Modificar.setEnabled(true);
         this.btn_Eliminar.setEnabled(true);
     }
+    //metodo que habilita el boton de eliminar
     public void habilitarEliminar()
     {
       this.btn_Eliminar.setEnabled(true);
     }
+    //metodo que deshabilita el boton de eliminar
     public void deshabilitarEliminar()
     {
       this.btn_Eliminar.setEnabled(false);

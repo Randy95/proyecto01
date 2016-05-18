@@ -13,6 +13,7 @@ import modelo.MetodosUsuario;
  *
  * @author RandyGUTI
  */
+//clase que interactua con el usuario para iniciar sesion como usuario
 public class FRM_VentanaLogin extends javax.swing.JFrame {
 
     /**
@@ -33,15 +34,18 @@ public class FRM_VentanaLogin extends javax.swing.JFrame {
         agregarEventos();
         
     }
+    //metodo que envia el controlador para crear eventos en los botones 
     public void agregarEventos()
     {
       this.btn_Ingresar.addActionListener(controlador);
       this.btn_Salir.addActionListener(controlador);
     }
+    //metodo que devuelve el texto en el jt_Usuario
     public String devolverNombreUsuario()
     {
       return this.jt_Usuario.getText();
     }
+    //metodo que verifica si se encuentran los espacios vacios
     public boolean espaciosVacio()
     {
       if(jt_Usuario.getText().equals("") || jtp_Password.getText().equals(""))
@@ -49,14 +53,17 @@ public class FRM_VentanaLogin extends javax.swing.JFrame {
       else
           return false;
     }
+   //metodo que devuelve el texto en el campo de password
     public String devolverPassword()
     {
       return this.jtp_Password.getText();
     }
+    //metodo que muestra un mensaje en la pantalla
     public void mostrarMensaje(String mensaje)
     {
         JOptionPane.showMessageDialog(null, mensaje);
     }
+    //metodo que limpia los campos de la ventana
     public void resetearGUI()
     {
       this.jt_Usuario.setText("");
@@ -148,6 +155,7 @@ public class FRM_VentanaLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //metodo que limpia la ventana y muestra la ventana principal al darle click en la x
     private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
         resetearGUI();
         this.frm_VentanaPrincipal.setVisible(true);// TODO add your handling code here:

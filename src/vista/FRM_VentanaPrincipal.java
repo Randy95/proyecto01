@@ -12,6 +12,7 @@ import modelo.ConexionBD;
  *
  * @author tecnologiamultimedia
  */
+//clase Principal del programa con metodo main. Esta interacta con el usuario despues de iniciar sesion o registrar al usuario
 public class FRM_VentanaPrincipal extends javax.swing.JFrame {
     
     Controlador_FRM_VentanaPrincipal controlador_FRM_VentanaPrincipal;
@@ -24,6 +25,7 @@ public class FRM_VentanaPrincipal extends javax.swing.JFrame {
         controlador_FRM_VentanaPrincipal=new Controlador_FRM_VentanaPrincipal(this,conexion);
         agregarEventos();
     }
+    //metodo que envia el controlador para poner a escuchar a los menu item de la barra menu
     public void agregarEventos()
     {
         this.jm_Salir.addActionListener(controlador_FRM_VentanaPrincipal);
@@ -33,6 +35,7 @@ public class FRM_VentanaPrincipal extends javax.swing.JFrame {
         this.jm_Registrar.addActionListener(controlador_FRM_VentanaPrincipal);
         this.jm_Login.addActionListener(controlador_FRM_VentanaPrincipal);
     }
+    //serie de metodos que habilitan o deshabilitan los menu item
     public void habilitarEstudiantes()
     {
       this.jm_Estudiantes.setEnabled(true);

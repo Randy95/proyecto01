@@ -15,6 +15,7 @@ import modelo.MetodosMatricula;
  *
  * @author RandyGUTI
  */
+//clase que interactua con el usuario para darle mantenimiento a las matriculas
 public class FRM_Matricula extends javax.swing.JFrame {
 
     /**
@@ -34,6 +35,7 @@ public class FRM_Matricula extends javax.swing.JFrame {
         colocarTitulosTabla();
         agregarEventos();
     }
+     //metodo que envia el controlador a los componentes que estan escuchando en la ventana
     public void agregarEventos()
     {
       btn_BusquedaCedula.addActionListener(controlador);
@@ -43,6 +45,7 @@ public class FRM_Matricula extends javax.swing.JFrame {
       jt_Sigla.addActionListener(controlador);
       this.panel_Botones1.agregarEventos(controlador);
     }
+    //metodo que envia un boolean si el campo de sigla esta vacio o no
     public boolean siglaVacia()
     {
       if(jt_Sigla.getText().equals(""))
@@ -50,6 +53,7 @@ public class FRM_Matricula extends javax.swing.JFrame {
       else
           return false;
     }
+    //metodo que coloca los titulos a las tabla
     public void colocarTitulosTabla()
     {
       this.tbl_Tabla.setModel(modelo);
@@ -58,81 +62,100 @@ public class FRM_Matricula extends javax.swing.JFrame {
       modelo.addColumn("Estudiante");
       modelo.addColumn("Sigla");
     }
+    //metodo que coloca el codigo consecutivo en el campo de texto codigo
     public void colocarCodigo()
     {
       this.jt_Codigo.setText(metodosMatricula.devolverCodigo());
     }
+    //metodo que muestra el nombre del estudiante
     public void mostrarEstudiante(String arreglo[])
     {
        this.jt_NombreEstudiante.setText(arreglo[0]); 
     }
+    //metodo que muestra el nombre del curso
     public void mostrarCurso(String arreglo[])
     {
        this.jt_NombreCurso.setText(arreglo[0]); 
     }
+    //metodo que devulve el texto en el jt_Cedula
     public String devolverCedula()
     {
         return this.jt_Cedula.getText();
     }
+    //metodo que devulve el texto en el jt_Sigla
     public String devolverSigla()
     {
         return this.jt_Sigla.getText();
     }
+    //metodo que devuelve el texto en el jt_Codigo
     public String devolverCodigo()
     {
         return this.jt_Codigo.getText();
     }
+    //metodo que devuelve el numero de filas de la tabla
     public int getCantidadFilas()
     {
       return modelo.getRowCount();
     }
+    //metodo que devuelve el dato en la fila y columna deseada de la tabla
     public String devolverDato(int fila, int columna)
     {
       return ""+modelo.getValueAt(fila, columna);
     }
+    //metodo que muestra un mensaje en pantalla
     public void mostrarMensaje(String mensaje)
     {
         JOptionPane.showMessageDialog(null,mensaje);
     }
+    //metodo que habilita el boton de agregar y finalizar
     public void habilitarAgregar()
     {
         this.panel_Botones1.habilitarAgregar();
         this.btn_Finalizar.setEnabled(true);
     }
+    //metodo que deshabilita los campos de cedula y sigla
     public void deshabilitarSiglaYCedula()
     {
       this.jt_Cedula.setEnabled(false);
       this.jt_Sigla.setEnabled(false);
     }
+    //metodo que habiliata los campos de cedula y sigla
     public void habilitarSiglaYCedula()
     {
       this.jt_Cedula.setEnabled(true);
       this.jt_Sigla.setEnabled(true);
     }
+    //metodo que habilita el boton de finalizar unicamente
     public void habilitarFinalizar()
     {
         this.btn_Finalizar.setEnabled(true);
     }
+    //metodo que deshabilita el boton de agregar
     public void deshabilitarAgregar()
     {
         this.panel_Botones1.deshabilitarBotones();
     }
+    //metodo que deshabilita el boton de finalizar 
     public void deshabilitarFinalizar()
     {
       this.btn_Finalizar.setEnabled(false);
     }
+    //metodo que habilita el boton eliminar
     public void habilitarBotones()
     {
       this.panel_Botones1.habilitarEliminar();
     }
+    //metodo que devuelve el numero de la fila seleccionada
     public int devolverFilaSeleccionada()
     {
        return this.tbl_Tabla.getSelectedRow();
     }
+    //metodo que elimina una fila dada en la tabla
     public void eliminarFilaTabla()
     {
       modelo.removeRow(this.tbl_Tabla.getSelectedRow());
     }
+    //metodo que agrega informacion en una fila de la tabla mediante los texto en los campos
     public void agregarInformacionTabla()
     {
       String arreglo[]=new String[4];
@@ -142,12 +165,14 @@ public class FRM_Matricula extends javax.swing.JFrame {
       arreglo[3]=jt_Sigla.getText();
       modelo.addRow(arreglo);
     }
+    //metodo que agrega informacion en una fila de la tabla mediante un arreglo recibido por parametro
     public void agregarInformacionTabla(String arreglo[])
     {
       modelo.addRow(arreglo);
       this.jt_NombreEstudiante.setText(arreglo[2]);
       this.jt_Cedula.setText(arreglo[1]);
     }
+    //metodo que pone los componentes de la ventana en su estado inicial(vacios y deshabilitados)
     public void resetearGUI()
     {
       this.jt_NombreCurso.setText("");
@@ -163,6 +188,7 @@ public class FRM_Matricula extends javax.swing.JFrame {
         modelo.removeRow(0);
       }
     }
+    //metodo que remueve todas las filas de la tabla
     public void limpiarTabla()
     {
       int tamanio=modelo.getRowCount();
@@ -171,24 +197,29 @@ public class FRM_Matricula extends javax.swing.JFrame {
         modelo.removeRow(0);
       }
     }
+    //metodo que devuelve el valor en la fila donde se encuentra la sigla
     public String devolverSiglaSeleccionada()
     {
       return ""+modelo.getValueAt(tbl_Tabla.getSelectedRow(), 3 );
     }
+    //metodo que deshabilita el boton de eliminar
     public void deshabilitarEliminar()
     {
       this.panel_Botones1.deshabilitarEliminar();
     }
+    //metodo que limpiar el campo de sigla y nombreCurso
     public void resetearSigla()
     {
       this.jt_Sigla.setText("");
       this.jt_Sigla.setEnabled(true);
       this.jt_NombreCurso.setText("");
     }
+    //metodo que deshabilita el campo de codigo
     public void deshabilitarCodigo()
     {
       this.jt_Codigo.setEnabled(false);
     }
+    //metodo que limpia los campos de cedula y nombre estudiante
     public void resetearCedula()
     {
         this.jt_Cedula.setText("");
@@ -394,6 +425,7 @@ public class FRM_Matricula extends javax.swing.JFrame {
         habilitarBotones();
     }//GEN-LAST:event_tbl_TablaMouseClicked
 
+    //metodo para limpiar la ventana al clickear la x y actualizar el archivo plano si este fue seleccionado al inicio
     private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
         resetearGUI();
         if(controlador.metodosMatricula.frm_SeleccionInicial.verificarArchivosPlanos())

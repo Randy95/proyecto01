@@ -14,6 +14,7 @@ import modelo.Verificar;
  *
  * @author RandyGUTI
  */
+//clase que interactua con el usuario para darle mantenimiento a los usuarios
 public class FRM_VentanaRegistrar extends javax.swing.JFrame {
 
     /**
@@ -32,6 +33,7 @@ public class FRM_VentanaRegistrar extends javax.swing.JFrame {
         this.frm_VentanaPrincipal=frm_VentanaPrincipal;
         this.panel_Botones1.agregarEventos(controlador);
     }
+    //metodo que hablitia los campos de texto de la ventana
     public void habilitarCampos()
     {
       this.jcb_TipoUsuario.setEnabled(true);
@@ -40,6 +42,7 @@ public class FRM_VentanaRegistrar extends javax.swing.JFrame {
       this.jt_Cedula.setEnabled(true);
       this.jtp_RepetirPassword.setEnabled(true);
     }
+    //metodo que verifica si los espacios estan vacios en la ventana y devuelve un true o false
     public boolean espaciosVacios()
     {
       if(jt_Cedula.getText().equals("") || jt_NombreCompleto.getText().equals("") || jtp_Password.getText().equals("")
@@ -50,6 +53,7 @@ public class FRM_VentanaRegistrar extends javax.swing.JFrame {
       else 
           return false;
     }
+    //metodo que habilita ciertos campos de texto
     public void habilitarModificacion()
     {
       this.jcb_TipoUsuario.setEnabled(true);
@@ -57,6 +61,7 @@ public class FRM_VentanaRegistrar extends javax.swing.JFrame {
       this.jtp_RepetirPassword.setEnabled(true);
       this.jt_NombreCompleto.setEnabled(true);
     }
+    //metodo que deshabilita todos los campos y habilita solo el de usuario
     public void deshabilitarCampos()
     {
       this.jt_NombreUsuario.setEnabled(true);
@@ -67,10 +72,12 @@ public class FRM_VentanaRegistrar extends javax.swing.JFrame {
       this.jtp_RepetirPassword.setEnabled(false);
       this.panel_Botones1.deshabilitarBotones();
     }
+    //metodo que deshabilita el campo de nombre usuario 
     public void deshabilitarNombreUsuario()
     {
      this.jt_NombreUsuario.setEnabled(false);
     }
+    
     public void habilitarAgregar()
     {
       this.panel_Botones1.habilitarAgregar();
@@ -79,15 +86,17 @@ public class FRM_VentanaRegistrar extends javax.swing.JFrame {
     {
       this.panel_Botones1.habilitarEdicion();
     }
+    //metodo que muestra un mensaje en pantalla
     public void mostrarMensaje(String mensaje)
     {
         JOptionPane.showMessageDialog(null, mensaje);
     }
+    //metodo que devuelve el texto en el nombre de usuario
     public String devolverNombreUsuario()
     {
       return this.jt_NombreUsuario.getText();
     }
-    
+    //metodo que devuelve la informacion de los campos de texto en un arreglo
     public String[] devolverInformacion()
     {
       String informacion[]=new String[5];
@@ -100,6 +109,7 @@ public class FRM_VentanaRegistrar extends javax.swing.JFrame {
         
         return informacion;
     }
+    //metodo que muestra informacion en los campos de texto mediante un arreglo
     public void mostrarInformacion(String arreglo[])
     {
       this.jtp_Password.setText(arreglo[0]);
@@ -107,6 +117,7 @@ public class FRM_VentanaRegistrar extends javax.swing.JFrame {
       this.jt_NombreCompleto.setText(arreglo[2]);
       this.jt_Cedula.setText(arreglo[3]);
     }
+    //metodo que limpiar los campos de texto y los deshabilita
     public void resetearGUI()
     {
       this.jt_NombreUsuario.setText("");
@@ -118,6 +129,7 @@ public class FRM_VentanaRegistrar extends javax.swing.JFrame {
       deshabilitarCampos();
       
     }
+    //metodo para comparar que los dos espacios de las passwords sean iguales y devuelven un true o false
     public boolean compararPasswords()
     {
        boolean verdad=false;
@@ -129,6 +141,7 @@ public class FRM_VentanaRegistrar extends javax.swing.JFrame {
        
        return verdad;
     }
+    //metodo que limpia los campos de password y repetir password
     public void limpiarPasswords()
     {
       this.jtp_Password.setText("");
@@ -265,6 +278,7 @@ public class FRM_VentanaRegistrar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //metodo que escucha al teclear enter en el campo de nombre usuario
     private void jt_NombreUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jt_NombreUsuarioKeyPressed
         // TODO add your handling code here:
         if(evt.getKeyCode()==10)
@@ -273,6 +287,7 @@ public class FRM_VentanaRegistrar extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jt_NombreUsuarioKeyPressed
 
+    //metodo que actualiza el archivo plano si antes se selecciono y muestra la ventana principal
     private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
         resetearGUI();
         if(metodos.frm_SeleccionInicial.verificarArchivosPlanos())

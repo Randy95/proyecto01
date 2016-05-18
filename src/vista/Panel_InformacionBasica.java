@@ -11,6 +11,7 @@ import controlador.Controlador_FRM_MantenimientoEstudiantes;
  *
  * @author tecnologiamultimedia
  */
+//clase de tipo JPanel que contiene campos de texto para los estudiantes
 public class Panel_InformacionBasica extends javax.swing.JPanel {
 
     /**
@@ -21,12 +22,14 @@ public class Panel_InformacionBasica extends javax.swing.JPanel {
         initComponents();
         deshabilitarCampos();
     }
+    //envia el controlador para poner a escuchar al boton de consulta rapida y el campo de cedula
     public void agregarEventos(Controlador_FRM_MantenimientoEstudiantes controlador)
     {
         this.controlador=controlador;
         this.btn_ConsultaRapida.addActionListener(controlador);
         this.jt_Cedula.addActionListener(controlador);
     }
+    //metodo que devuelve un arreglo con los textos en los campos
     public String[] devolverInformacion()
     {
         String informacion[]=new String[3];
@@ -36,6 +39,7 @@ public class Panel_InformacionBasica extends javax.swing.JPanel {
         
         return informacion;
     }
+    //metodo que verifica si estan los espacios vacios 
     public boolean espaciosVacios()
     {
       if(jt_Cedula.getText().equals("") || jt_Direccion.getText().equals("") || jt_NombreCompleto.getText().equals("") )
@@ -43,20 +47,18 @@ public class Panel_InformacionBasica extends javax.swing.JPanel {
       else
           return false;
     }
+    //metodo que devuelve el texto en el campo cedula
     public String devolverCedula()
     {
         return this.jt_Cedula.getText();
     }
+     //metodo para mostrar texto en los campos
     public void mostrarInformacion(String arreglo[])
     {
         this.jt_NombreCompleto.setText(arreglo[0]);
         this.jt_Direccion.setText(arreglo[1]);
     }
-//    public void habilitarCampos()
-//    {
-//        this.jt_NombreCompleto.setEnabled(true);
-//        this.jt_Direccion.setEnabled(true);
-//    }
+    //metodo que deshabilita los campos y los limpia
     public void deshabilitarCampos()
     {
         this.jt_Cedula.setEnabled(true);
@@ -66,6 +68,7 @@ public class Panel_InformacionBasica extends javax.swing.JPanel {
         this.jt_NombreCompleto.setEnabled(false);
         this.jt_Direccion.setEnabled(false);
     }
+    //metodo que habilita los campos de nombre y direccion y deshabilita el de cedula
     public void habilitarEdicion()
     {
         this.jt_Cedula.setEnabled(false);
@@ -149,6 +152,7 @@ public class Panel_InformacionBasica extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    //metodo que busca al tocar enter en el campo de cedula
     private void jt_CedulaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jt_CedulaKeyPressed
         
       if(evt.getKeyCode()==10)

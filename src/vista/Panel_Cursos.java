@@ -11,6 +11,7 @@ import controlador.Controlador_FRM_MantenimientoCursos;
  *
  * @author RandyGUTI
  */
+//clase de tipo JPanel con campos de texto para hacer uso en los cursos
 public class Panel_Cursos extends javax.swing.JPanel {
 
     /**
@@ -22,6 +23,7 @@ public class Panel_Cursos extends javax.swing.JPanel {
         cargarCreditos();
         deshabilitarCampos();
     }
+    //metodo que carga valores en el checkbox de creditos
     public void cargarCreditos()
     {
       this.jcb_Creditos.removeAllItems();
@@ -31,6 +33,7 @@ public class Panel_Cursos extends javax.swing.JPanel {
       }
       this.jcb_Creditos.setSelectedIndex(4);
     }
+    //metodo que verifica si estan los espacios vacios 
     public boolean espaciosVacios()
     {
       if(jt_Sigla.getText().equals("") || jt_Horario.getText().equals("") || jt_Nombre.getText().equals("") )
@@ -38,16 +41,19 @@ public class Panel_Cursos extends javax.swing.JPanel {
       else
           return false;
     }
+    //metodo que envia el controlador de cursos al boton y el campo de texto de sigla
     public void agregarEventos(Controlador_FRM_MantenimientoCursos controlador)
     {
       this.controlador=controlador;
       this.btn_ConsultaRapida.addActionListener(controlador);
       this.jt_Sigla.addActionListener(controlador);
     }
+    //metodo que devuelve el texto en la sigla
     public String devolverSigla()
     {
      return this.jt_Sigla.getText();
     }
+    //metodo que devuelve un arreglo con los textos en los campos
     public String[] devolverInformacion()
     {
         String informacion[]=new String[4];
@@ -58,6 +64,7 @@ public class Panel_Cursos extends javax.swing.JPanel {
         
         return informacion;
     }
+    //metodo que habilita los campos y el check box
     public void habilitarEdicion()
     {
       this.jt_Sigla.setEnabled(false);
@@ -65,12 +72,14 @@ public class Panel_Cursos extends javax.swing.JPanel {
       this.jcb_Creditos.setEnabled(true);
       this.jt_Horario.setEnabled(true);
     }
+    //metodo para mostrar texto en los campos y seleccionar un item en el check box
     public void mostrarInformacion(String arreglo[])
     {
         this.jt_Nombre.setText(arreglo[0]);
         this.jcb_Creditos.setSelectedIndex(Integer.parseInt(arreglo[1]));
         this.jt_Horario.setText(arreglo[2]);
     }
+    //metodo que deshabilita los campos y el check box y los limpia
     public void deshabilitarCampos()
     {
         this.jt_Sigla.setEnabled(true);
@@ -176,6 +185,7 @@ public class Panel_Cursos extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    //metodo que busca mediante el enter en la sigla
     private void jt_SiglaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jt_SiglaKeyPressed
         // TODO add your handling code here:
         if(evt.getKeyCode()==10)

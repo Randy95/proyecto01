@@ -10,10 +10,7 @@ import javax.swing.JOptionPane;
 import modelo.ConexionBD;
 import modelo.Verificar;
 
-/**
- *
- * @author tecnologiamultimedia
- */
+//clase que interactua con el usuario para darle mantenimiento a los estudiantes
 public class FRM_MantenimientoEstudiantes extends javax.swing.JFrame {
 
    
@@ -27,6 +24,7 @@ public class FRM_MantenimientoEstudiantes extends javax.swing.JFrame {
         this.panel_Botones1.agregarEventos(controlador);
         this.panel_InformacionBasica1.agregarEventos(controlador);
     }
+    //metodos que llama distintos metodos de los panelBotones y panelInformacionBasica
     public String[] devolverInformacion()
     {
         return this.panel_InformacionBasica1.devolverInformacion();
@@ -40,6 +38,7 @@ public class FRM_MantenimientoEstudiantes extends javax.swing.JFrame {
     {
       return this.panel_InformacionBasica1.espaciosVacios();
     }
+     //metodo que muestra un mensaje en pantalla
     public void mostrarInformacion(String arreglo[])
     {
         this.panel_InformacionBasica1.mostrarInformacion(arreglo);
@@ -107,7 +106,8 @@ public class FRM_MantenimientoEstudiantes extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    //metodo para limpiar la ventana al clickear la x y actualizar el archivo plano si este fue seleccionado al inicio
     private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
         resetearGUI();
         if(controlador.metodosEstudiantes.frm_SeleccionInicial.verificarArchivosPlanos())

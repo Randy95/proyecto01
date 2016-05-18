@@ -14,13 +14,13 @@ import modelo.Verificar;
  *
  * @author RandyGUTI
  */
+//Clase que inteactua con el usuario en donde puede darle mantenimiento a los cursos
 public class FRM_MantenimientoCursos extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FRM_MantenimientoCursos
-     */
+    
     public Controlador_FRM_MantenimientoCursos controlador;
     
+    //constructor que recibe la clase conexionBD, seleccion inicial y verificar para enviarlas al controladorMantenimientoCursos
     public FRM_MantenimientoCursos(ConexionBD conexion,FRM_SeleccionInicial frm_SeleccionInicial,Verificar verificar) {
         initComponents();
         this.setVisible(false);
@@ -28,11 +28,13 @@ public class FRM_MantenimientoCursos extends javax.swing.JFrame {
         controlador=new Controlador_FRM_MantenimientoCursos(this,conexion,frm_SeleccionInicial,verificar);
         agregarEventos();
     }
+    //metodo que envia el controlador a los paneles de botones e informacion del curso
     public void agregarEventos()
     {
       this.panel_Botones1.agregarEventosCursos(controlador);
       this.panel_Cursos1.agregarEventos(controlador);
     }
+    //metodos que llama a los metodos del panel de botones y panelCursos
     public boolean espaciosVacios()
     {
       return this.panel_Cursos1.espaciosVacios();
@@ -41,6 +43,7 @@ public class FRM_MantenimientoCursos extends javax.swing.JFrame {
     {
         this.panel_Cursos1.mostrarInformacion(arreglo);
     }
+    //metodo que muestra un mensaje en pantalla
     public void mostrarMensaje(String mensaje)
     {
         JOptionPane.showMessageDialog(null,mensaje);
@@ -109,6 +112,7 @@ public class FRM_MantenimientoCursos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //metodo para limpiar la ventana al clickear la x y actualizar el archivo plano si este fue seleccionado al inicio
     private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
         resetearGUI();
         if(controlador.metodosCursos.frm_SeleccionInicial.verificarArchivosPlanos())

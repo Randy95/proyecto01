@@ -11,6 +11,7 @@ import controlador.Controlador_FRM_VentanaPrincipal;
  *
  * @author RandyGUTI
  */
+//clase que se muestra al inicio para seleccionar el tipo fuente de informacion a usar
 public class FRM_SeleccionInicial extends javax.swing.JFrame {
 
     Controlador_FRM_VentanaPrincipal controlador;
@@ -19,14 +20,17 @@ public class FRM_SeleccionInicial extends javax.swing.JFrame {
         this.controlador=controlador;
         this.setLocation(500, 250);
     }
+    //metodo que verifica si el radio button de Base de Datos esta seleccionado
     public boolean verificarBD()
     {
       return jrb_BaseDatos.isSelected();
     }
+    //metodo que verifica si el radio button de Archivos Planos esta seleccionado
      public boolean verificarArchivosPlanos()
     {
       return jrb_Archivos.isSelected();
     }
+     //metodo que verifica si el radio button de Archivos XML esta seleccionado
       public boolean verificarXML()
     {
       return jrb_XML.isSelected();
@@ -98,6 +102,9 @@ public class FRM_SeleccionInicial extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //metodo que al clickear x en la ventana carga los arraylist de las clases de metodos dependiendo el tipo 
+    //de fuente de informacion seleccionada, y llama al metodo del controlador principal para levantar las ventanas de registro
+    //, login o salir del programa
     private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
         if(verificarBD())
         {
