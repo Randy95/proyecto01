@@ -13,23 +13,24 @@ import modelo.Verificar;
 import vista.FRM_MantenimientoCursos;
 import vista.FRM_SeleccionInicial;
 
-/**
- *
- * @author RandyGUTI
- */
+//Clase que se encarga de controlar los eventos de la interfaz Mantenimiento de Cursos
 public class Controlador_FRM_MantenimientoCursos implements ActionListener{
    
     FRM_MantenimientoCursos frm_MantenimientoCursos;
     public MetodosCursos metodosCursos;
     Verificar verificar;
     
+    //constructo que recibe las clases de la vista Mantenimiento cursos, Conexion base de datos,
+    //la clase de seleccion inicial y la clase verificar
     public Controlador_FRM_MantenimientoCursos(FRM_MantenimientoCursos frm_MantenimientoCursos,ConexionBD conexion,FRM_SeleccionInicial frm_SeleccionInicial
     ,Verificar verificar)
     {
       this.frm_MantenimientoCursos=frm_MantenimientoCursos;
       this.verificar=verificar;
+      //se crea la instancia a la clase del modelo MetodosCursos y se le envian por parametros la referencia de ConexionBD Y FRM_SeleccionInicial
       metodosCursos=new MetodosCursos(conexion,frm_SeleccionInicial);
     }
+    //en este metodo se hacen uso de los metodos de las clases de la ventana de MantenimientoCursos, Verificar y MetodosCursos
     public void actionPerformed(ActionEvent evento)
     {
        if(evento.getActionCommand().equals("Agregar"))
@@ -75,6 +76,8 @@ public class Controlador_FRM_MantenimientoCursos implements ActionListener{
           frm_MantenimientoCursos.resetearGUI();  
        }
     }
+    /*metodo que se encarga de buscar mediante una sigla si se encuentra un curso o no se encuentra esto
+    para mostrar si la sigla existe o para poder agregar un nuevo curso*/
     public void buscar()
     {
       if(metodosCursos.consultarCurso(frm_MantenimientoCursos.devolverSigla()))

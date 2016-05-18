@@ -12,7 +12,7 @@ import modelo.MetodosEstudiantes;
 import modelo.Verificar;
 import vista.FRM_MantenimientoEstudiantes;
 import vista.FRM_SeleccionInicial;
-
+//Clase que se encarga de controlar los eventos de la interfaz Mantenimiento de Estudiantes
 
 public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
     
@@ -20,14 +20,17 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
     Verificar verificar;
     FRM_MantenimientoEstudiantes frm_MantenimientoEstudiantes;
     
+    //constructo que recibe las clases de la vista Mantenimiento Estudiantes, Conexion base de datos,
+    //la clase de seleccion inicial y la clase verificar
     public Controlador_FRM_MantenimientoEstudiantes(FRM_MantenimientoEstudiantes frm_MantenimientoEstudiantes,ConexionBD conexion,FRM_SeleccionInicial frm_SeleccionInicial
     ,Verificar verificar)
     {
         this.verificar=verificar;
+        //se crea la instancia a la clase del modelo MetodosCursos y se le envian por parametros la referencia de ConexionBD Y FRM_SeleccionInicial
         metodosEstudiantes= new MetodosEstudiantes(conexion,frm_SeleccionInicial);
         this.frm_MantenimientoEstudiantes=frm_MantenimientoEstudiantes;
     }
-    
+    //en este metodo se hacen uso de los metodos de las clases de la ventana de MantenimientoEstudiantes, Verificar y MetodosEstudiantes
     public void actionPerformed(ActionEvent e)
     {
         if(e.getActionCommand().equals("Agregar"))
@@ -74,6 +77,7 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
             frm_MantenimientoEstudiantes.resetearGUI();
         }
     }
+    //metodo que se encarga de de buscar mediante una cedula un estudiante existente o para poder ingresar uno nuevo
     public void buscar()
     {
         if(metodosEstudiantes.consultarEstudiante(frm_MantenimientoEstudiantes.devolverCedula()))

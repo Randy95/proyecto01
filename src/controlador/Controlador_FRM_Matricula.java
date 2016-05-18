@@ -21,6 +21,7 @@ import vista.FRM_SeleccionInicial;
  *
  * @author RandyGUTI
  */
+//clase que se encarga de controlar los eventos de la clase FRM_Matricula
 public class Controlador_FRM_Matricula implements ActionListener{
 
     FRM_MantenimientoEstudiantes frm_MantenimientoEstudiantes;
@@ -34,6 +35,7 @@ public class Controlador_FRM_Matricula implements ActionListener{
     private boolean verificarCurso=false;
     private boolean verificarEstudiante=false;
     
+    //constructor que recibe las clases de mantenimiento estudiantes, cursos, matricula, conexionBD, FRM_SeleccionInicial
     public Controlador_FRM_Matricula(FRM_MantenimientoEstudiantes frm_MantenimientoEstudiantes, FRM_MantenimientoCursos frm_MantenimientoCursos,
             FRM_Matricula frm_Matricula,ConexionBD conexion,FRM_SeleccionInicial frm_SeleccionInicial) 
     {
@@ -42,6 +44,7 @@ public class Controlador_FRM_Matricula implements ActionListener{
       this.frm_Matricula=frm_Matricula;
       metodosMatricula = new MetodosMatricula(metodosCursos, metodosEstudiantes,this,conexion,frm_SeleccionInicial);
     }
+    //metodo que hace uso de los metodos de la clase FRM_Matricula, MetodosMatricula
     public void actionPerformed(ActionEvent e)
     {
       if(e.getActionCommand().equals("BuscarEstudiante"))
@@ -106,6 +109,7 @@ public class Controlador_FRM_Matricula implements ActionListener{
       
        //habilitarAgregar();
     }
+    //metodo que se encarga de mostrar el nombre del estudiante mediante la cedula digitada
     public void buscarEstudiante()
     {
         if(metodosEstudiantes.consultarEstudiante(frm_Matricula.devolverCedula()))
@@ -121,6 +125,7 @@ public class Controlador_FRM_Matricula implements ActionListener{
                 verificarEstudiante=false;
             }     
     }
+    //metodo que busca un curso mediante una sigla y muestra el nombre del curso
     public void buscarCurso()
     {
         if(metodosCursos.consultarCurso(frm_Matricula.devolverSigla()))
@@ -136,6 +141,7 @@ public class Controlador_FRM_Matricula implements ActionListener{
                 verificarCurso=false;
             }   
     }
+    //metodo que habilita el boton de agregar de la FRM_Matricula sí las variables verificarEstudiante y verificarCurso son true al mismo tiempo
     public void habilitarAgregar()
     {
       if(verificarEstudiante && verificarCurso)
@@ -145,11 +151,13 @@ public class Controlador_FRM_Matricula implements ActionListener{
          frm_Matricula.deshabilitarCodigo();
       }
     }
+    //metodo que limpiar los campos de la ventana y desactiva los botones en su posision inicial
     public void limpiar()
     {
       frm_Matricula.resetearGUI();
       frm_Matricula.deshabilitarAgregar();
     }
+    //metodo que vuelve false las variables de verificarCurso y verificarEstudiante
     public void desvalidar()
     {
       verificarCurso=false;

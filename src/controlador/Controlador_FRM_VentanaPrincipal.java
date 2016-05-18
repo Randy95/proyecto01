@@ -18,15 +18,10 @@ import vista.FRM_VentanaLogin;
 import vista.FRM_VentanaPrincipal;
 import vista.FRM_VentanaRegistrar;
 
-/**
- *
- * @author tecnologiamultimedia
- */
-
-
-    
+//clase que se encarga de controlar los eventos de la VentanaPrincipal y crea las instancias de la mayoria de las clases del proyecto
 public class Controlador_FRM_VentanaPrincipal implements ActionListener{
 
+    //referencias
     public ConexionBD conexion;
     FRM_SeleccionInicial frm_SeleccionInicial;
     public FRM_MantenimientoEstudiantes frm_MantenimientoEstudiantes;
@@ -37,8 +32,10 @@ public class Controlador_FRM_VentanaPrincipal implements ActionListener{
     FRM_VentanaLogin frm_VentanaLogin;
     public MetodosUsuario metodos;
     
+    //constructor que recibe la clase FRM_VentanaPrincipal y la clase ConexionBD
     public Controlador_FRM_VentanaPrincipal(FRM_VentanaPrincipal frm_VentanaPrincipal,ConexionBD conexion)
     {
+        //creacion de instancias y envio por parametros de instancias a las clases para poder hacer uso de ellas
         this.conexion = conexion;
         verificar = new Verificar();
         frm_SeleccionInicial = new FRM_SeleccionInicial(this);
@@ -51,6 +48,8 @@ public class Controlador_FRM_VentanaPrincipal implements ActionListener{
         frm_Matricula = new FRM_Matricula(frm_MantenimientoEstudiantes,frm_MantenimientoCursos,conexion,frm_SeleccionInicial);
          
     }
+    //Metodo que levante las ventanas de registrar usuario o ventana Login dependiendo de la opcion del tipo de fuente
+    // de informacion seleccionada en la frame Seleccion Inicial
     public void inicarPrograma()
     {
       if(frm_SeleccionInicial.verificarBD())
@@ -83,6 +82,7 @@ public class Controlador_FRM_VentanaPrincipal implements ActionListener{
         else
             System.exit(0);
     }
+    //metodo que realiza acciones mediante los componentes presentes en la VentanaPrincipal que se encuentran escuchando eventos
     public void actionPerformed(ActionEvent e)
     {
         if(e.getActionCommand().equals("Salir"))

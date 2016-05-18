@@ -16,6 +16,7 @@ import vista.FRM_VentanaRegistrar;
  *
  * @author RandyGUTI
  */
+//clase que controla los eventos de la FRM_VentanaRegistrar
 public class Controlador_FRM_VentanaRegistrar implements ActionListener{
 
     FRM_VentanaRegistrar frm_VentanaRegistrar;
@@ -97,6 +98,7 @@ public class Controlador_FRM_VentanaRegistrar implements ActionListener{
          frm_VentanaRegistrar.resetearGUI();
       }
     }
+    //metodo que busca un usuario mediante el nombre usuario, muestra la informacion de este o habilita opciones para agregar uno nuevo
     public void buscar()
     {
      

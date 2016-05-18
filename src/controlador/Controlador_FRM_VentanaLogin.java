@@ -15,6 +15,7 @@ import vista.FRM_VentanaLogin;
  *
  * @author RandyGUTI
  */
+//clase que se encarga de controlar los eventos de la FRM_VentanaLogin
 public class Controlador_FRM_VentanaLogin implements ActionListener{
 
     FRM_VentanaLogin frm_VentanaLogin;
@@ -25,6 +26,7 @@ public class Controlador_FRM_VentanaLogin implements ActionListener{
         this.frm_VentanaLogin=frm_VentanaLogin;
         
     }
+    //metodo que hace uso de los metodos del frame VentanaLogin y de los MetodosUsuario al escuchar los botones
     public void actionPerformed(ActionEvent e)
     {
         if(e.getActionCommand().equals("Ingresar"))
@@ -52,6 +54,7 @@ public class Controlador_FRM_VentanaLogin implements ActionListener{
             frm_VentanaLogin.frm_VentanaPrincipal.setVisible(true);
         }
     }
+    //metodo que comprueba el tipo de usuario al iniciar la sesión para poder habilitar los menu item necesarios
     public void verificarTipo(String tipo)
     {
        if(tipo.equals("Administrador"))
