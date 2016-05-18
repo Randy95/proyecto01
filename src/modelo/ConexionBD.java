@@ -21,7 +21,7 @@ import java.util.logging.Logger;
 import jdk.nashorn.internal.runtime.JSType;
 
 
-
+//clase que interactua con la base de datos de SQL SERVER
 public class ConexionBD {
     
     Connection con = null;
@@ -29,6 +29,7 @@ public class ConexionBD {
     {
       
     }
+    //METODO para conectarse a la base de datos
     public void realizarConexion()
     {
         try {

@@ -11,6 +11,7 @@ import java.io.Serializable;
  *
  * @author RandyGUTI
  */
+//clase objeto
 public class Cursos implements Serializable {
     
     private String sigla;

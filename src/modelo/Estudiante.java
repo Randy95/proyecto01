@@ -11,6 +11,7 @@ import java.io.Serializable;
  *
  * @author tecnologiamultimedia
  */
+//clase objeto
 public class Estudiante implements Serializable{
     
     private String cedula;

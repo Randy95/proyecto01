@@ -15,6 +15,7 @@ import java.util.ArrayList;
  *
  * @author RandyGUTI
  */
+//clase que crea el archivo plano con el objeto usuario
 public class ArchivosUsuario {
     
     ObjectOutputStream archivoSalida;
@@ -24,6 +25,7 @@ public class ArchivosUsuario {
     {
         
     }
+    //metodos que crean el archivo, escriben informacion en este
     public void crearArchivo()
     {
       try
@@ -62,6 +64,7 @@ public class ArchivosUsuario {
       }
       return usuario.getInformacion();
     }
+    //metodo que genera un arrayList con los objetos guardados en el archivos
     public ArrayList<Usuario> leerInformacionCompleta()
     {
       ArrayList<Usuario> arrayUsuarios = new ArrayList <Usuario>();

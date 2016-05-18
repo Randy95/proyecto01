@@ -12,6 +12,7 @@ import vista.FRM_SeleccionInicial;
  *
  * @author RandyGUTI
  */
+//clase con metodos de agregar, consultar, modificar, eliminar del objeto usuario
 public class MetodosUsuario {
     
     private ArrayList <Usuario> arrayUsuarios;
@@ -29,14 +30,17 @@ public class MetodosUsuario {
         archivos = new ArchivosUsuario();
         archivoXML = new XML_Usuario();
     }
+    //metodo para igualar el arraylist de esta clase con el arraylist creado en Archivos XML del objeto
     public void igualArrayXML()
     {
       arrayUsuarios=archivoXML.crearArrayUsuario();
     }
+    //metodo para igualar el arraylist de esta clase con el arraylist creado en conexionBD
     public void igualarArrayBD()
     {
        arrayUsuarios=conexion.crearArrayUsuario();
     }
+     //metodo para igualar el arraylist de esta clase con el arraylist creado en Archivos del objeto
     public void igualarArrayArchivos()
     {
       arrayUsuarios=archivos.leerInformacionCompleta();

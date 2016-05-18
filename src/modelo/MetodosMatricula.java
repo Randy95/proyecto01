@@ -14,6 +14,7 @@ import vista.FRM_SeleccionInicial;
  *
  * @author RandyGUTI
  */
+//clase con metodos de agregar, consultar, modificar, eliminar del objeto matricula
 public class MetodosMatricula {
 
     private ArrayList <Matricula> arrayMatricula;
@@ -38,14 +39,17 @@ public class MetodosMatricula {
        archivoXML = new XML_Matricula(); 
        archivos = new ArchivosMatricula();
     }
+    //metodo para igualar el arraylist de esta clase con el arraylist creado en Archivos XML del objeto
     public void igualArrayXML()
     {
       arrayMatricula=archivoXML.crearArrayMatricula();
     }
+    //metodo para igualar el arraylist de esta clase con el arraylist creado en conexionBD
     public void igualarArrayBD()
     {
        arrayMatricula=conexion.crearArrayMatricula();
     }
+     //metodo para igualar el arraylist de esta clase con el arraylist creado en Archivos del objeto
     public void igualarArrayArchivos()
     {
       arrayMatricula=archivos.leerInformacionCompleta();

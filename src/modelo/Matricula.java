@@ -11,6 +11,7 @@ import java.io.Serializable;
  *
  * @author RandyGUTI
  */
+//clase objeto
 public class Matricula implements Serializable{
     
     private String codigo;

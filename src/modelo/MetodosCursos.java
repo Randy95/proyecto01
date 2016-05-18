@@ -12,6 +12,7 @@ import vista.FRM_SeleccionInicial;
  *
  * @author RandyGUTI
  */
+//clase con metodos de agregar, consultar, modificar, eliminar del objeto cursos
 public class MetodosCursos {
     
     private ArrayList <Cursos> arrayCursos;
@@ -30,14 +31,17 @@ public class MetodosCursos {
         archivos = new ArchivosCursos();
         
     }
+    //metodo para igualar el arraylist de esta clase con el arraylist creado en conexionBD
     public void igualarArrayBD()
     {
        arrayCursos=conexion.crearArrayCursos();
     }
+    //metodo para igualar el arraylist de esta clase con el arraylist creado en Archivos del objeto
     public void igualarArrayArchivos()
     {
       arrayCursos=archivos.leerInformacionCompleta();
     }
+    //metodo para igualar el arraylist de esta clase con el arraylist creado en Archivos XML del objeto
     public void igualarArrayXML()
     {
       arrayCursos=archivoXML.crearArrayCurso();

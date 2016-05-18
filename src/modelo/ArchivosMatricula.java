@@ -14,6 +14,7 @@ import java.util.ArrayList;
  *
  * @author RandyGUTI
  */
+//clase que crea el archivo plano con el objeto matricula
 public class ArchivosMatricula {
     
     ObjectOutputStream archivoSalida;
@@ -23,6 +24,7 @@ public class ArchivosMatricula {
     {
         
     }
+    //metodos que crean el archivo, escriben informacion en este
     public void crearArchivo()
     {
       try
@@ -61,6 +63,7 @@ public class ArchivosMatricula {
       }
       return matricula.getInformacion();
     }
+    //metodo que genera un arrayList con los objetos guardados en el archivos
     public ArrayList<Matricula> leerInformacionCompleta()
     {
       ArrayList<Matricula> arrayMatriculas = new ArrayList <Matricula>();

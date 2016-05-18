@@ -12,6 +12,7 @@ import vista.FRM_SeleccionInicial;
  *
  * @author tecnologiamultimedia
  */
+//clase con metodos de agregar, consultar, modificar, eliminar del objeto ESTUDIANTE
 public class MetodosEstudiantes {
     
     private ArrayList <Estudiante> arrayEstudiantes;
@@ -30,14 +31,17 @@ public class MetodosEstudiantes {
         archivoXML=new XML_Estudiantes();
         
     }
+    //metodo para igualar el arraylist de esta clase con el arraylist creado en Archivos XML del objeto
     public void igualArrayXML()
     {
       arrayEstudiantes=archivoXML.crearArrayEstudiante();
     }
+    //metodo para igualar el arraylist de esta clase con el arraylist creado en conexionBD
     public void igualarArrayBD()
     {
        arrayEstudiantes=conexion.crearArrayEstudiantes();
     }
+    //metodo para igualar el arraylist de esta clase con el arraylist creado en Archivos del objeto
     public void igualarArrayArchivos()
     {
       arrayEstudiantes=archivos.leerInformacionCompleta();

@@ -11,6 +11,7 @@ import java.io.Serializable;
  *
  * @author RandyGUTI
  */
+//clase objeto
 public class Usuario implements Serializable{
     
     private String nombreUsuario;

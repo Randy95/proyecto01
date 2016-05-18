@@ -26,6 +26,7 @@ import org.w3c.dom.Text;
 import org.xml.sax.SAXException;
 import vista.FRM_MantenimientoEstudiantes;
  
+//clase que hace uso de archivos XML, guarda, modifica, eliminar y crear un array con la informacion guardada en el XML
 public class XML_Usuario 
 {
     DocumentBuilderFactory factory;
@@ -49,6 +50,7 @@ public class XML_Usuario
         titulos = new ArrayList();
         valores = new ArrayList();
     }
+    //metodo para cargar XML si existe o crear uno 
     public void iniciarXML()
     {
       if(cargarXML())
@@ -168,38 +170,6 @@ public class XML_Usuario
             Logger.getLogger(XML_Usuario.class.getName()).log(Level.SEVERE, null, ex);
         }   
     }
-//    public boolean consultarInformacionDelXml(String cedula)
-//    { 
-//         Element raiz = document.getDocumentElement();
-//         NodeList listaDeItems = raiz.getElementsByTagName("Usuario");
-//         Node tag=null,datoContenido=null;
-//
-//         boolean itemEncontrado=false,tituloCedula=false;
-//         int contador=0;
-//
-//         for(int contadorItems=0; contadorItems<listaDeItems.getLength(); contadorItems++) 
-//         {   
-//             Node item = listaDeItems.item(contadorItems);
-//             NodeList datosItem = item.getChildNodes();
-//             for(int contadorTags=0; contadorTags<datosItem.getLength(); contadorTags++) 
-//             {           
-//                 tag = datosItem.item(contadorTags); 
-//                 datoContenido = tag.getFirstChild();
-//
-//                 if(tag.getNodeName().equals("cedula") && datoContenido.getNodeValue().equals(""+cedula) )
-//                 {
-//                    itemEncontrado=true;     
-//                 }
-//                 if(itemEncontrado && contador<3)
-//                 {
-//                    arregloInformacion[contador]=datoContenido.getNodeValue();
-//                    contador++;
-//                 }
-//             }
-//
-//         }
-//         return itemEncontrado;
-//    }
     public ArrayList<Usuario> crearArrayUsuario()
     { 
          Element raiz = document.getDocumentElement();

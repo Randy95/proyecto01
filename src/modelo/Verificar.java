@@ -9,12 +9,14 @@ package modelo;
  *
  * @author RandyGUTI
  */
+//clase para verificar los textos de los identificadores de las distintas ventanas
 public class Verificar {
 
     public Verificar() 
     {
         
     }
+    //verifica si el texto contiene solo numeros
     public boolean verificarNumeros(String texto)
     {
       boolean esNumero=true;
@@ -28,6 +30,7 @@ public class Verificar {
       }
       return esNumero;
     }
+    //metodo que verifica si el metodo tiene solo letras
     public boolean verificarLetras(String texto)
     {
       boolean esLetra=true;
@@ -41,10 +44,12 @@ public class Verificar {
       }
       return esLetra;
     }
+    //metodo que ignora los espacios situados entre un texto
     public String obviarEspacios(String texto)
     {
       return texto.replaceAll(" ", "").trim();
     }
+    //metodo que verifica si el texto contiene un simbolo en específico
     public boolean verificarSimbolo(String texto,String simbolo)
     {
       if(texto.contains(simbolo) && texto.contains("."))
